@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form  method="post" action="{% url 'update' dataid=data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Name of photographer</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="name" value="{{data.PNAME}}">
+                </div>
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Designation</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="designation" value="{{data.desig}}">
+                </div>
+
+              <div class="col-12">
+                  <label for="inputNanme4" class="form-label">photo</label>
+                  <input type="file" class="form-control" id="inputNanme4" name="photo"><img src="{{data.PIM.url}}" width="100px;">
+                </div>
+    <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+
+
+
+</form>
+</body>
+</html>
+{% endblock %}

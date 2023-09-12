@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+            <div class="card-body">
+              <h5 class="card-title">TABLE</h5>
+
+              <!-- Dark Table -->
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col">Photo</th>
+
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in data %}
+                  <tr>
+                    <td>{{i.PNAME}}</td>
+                    <td>{{i.desig}}</td>
+                    <td><img src="{{i.PIM.url}}" alt="" width="200px"></td>
+                    <td>
+                      <form action="{% url 'edit' dataid=i.id %}">
+
+      <button type="submit" class="btn btn-primary">EDIT</button></form></td>
+                          <td>
+                              <form action="{% url 'delete' dataid=i.id %}">
+                              <button type="submit"  class="btn btn-primary">Delete</button>
+                              </form>
+                          </td>
+
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Dark Table -->
+
+            </div>
+          </div>
+
+</body>
+</html>
+{% endblock %}

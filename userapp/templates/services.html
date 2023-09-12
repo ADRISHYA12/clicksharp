@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Phozogy Template">
+    <meta name="keywords" content="Phozogy, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Phozogy | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Quantico:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header-section header-normal">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="logo">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'asset/img/Free_Sample_By_Wix.jpg' %}" alt="">
+                        </a>
+                    </div>
+                    <nav class="nav-menu mobile-menu">
+                        <ul>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li class="active"><a href="{% url 'service' %}">Services</a></li>
+                            <li><a href="{% url 'price' %}">Pricing</a></li>
+                            <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                            <li><a href="{% url 'appoinment' %}">Appoinment</a>
+<!--                                <ul class="dropdown">-->
+<!--                                    <li><a href="./gallery.html">Gallery</a></li>-->
+<!--                                    <li><a href="./portfolio-details.html">Portfolio Details</a></li>-->
+<!--                                </ul>-->
+                            </li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </nav>
+<!--                    <div class="top-search search-switch">-->
+<!--                        <i class="fa fa-search"></i>-->
+<!--                    </div>-->
+                    <div id="mobile-menu-wrap"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bo-links">
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+                        <span>Services</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Services Section Begin -->
+    <section class="services-section services-normal spad">
+        <div class="container">
+            <div class="row">
+                {% for i in data %}
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="services-item">
+                        <img src="{{i.SIM.url}}"  alt="">
+                        <h3>{{i.SNAME}}</h3>
+                        <p>{{i.S_DESCRIPTION}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                 <div class="col-lg-6 col-md-6">
+                    <div class="right-btn">
+                        <a href="{% url 'appoinment' %}" class="primary-btn">GET APPOINMENT</a>
+                    </div>
+
+<!--                <div class="col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="services-item">-->
+<!--                        <img src="{% static 'asset/img/services/service-2.jpg' %}" alt="">-->
+<!--                        <h3>Videos</h3>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="services-item">-->
+<!--                        <img src="{% static 'asset/img/services/service-3.jpg' %}" alt="">-->
+<!--                        <h3>Editing</h3>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Services Option Section Begin -->
+<!--    <section class="services-option">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-6">{% for i in data %}-->
+<!--                    <div class="so-item">-->
+<!--                        <div class="so-title">-->
+<!--                            <div class="so-number">01</div>-->
+<!--                            <h5>{{i.SNAME}}</h5>-->
+<!--                        </div>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+<!--                    <div class="so-item">-->
+<!--                        <div class="so-title">-->
+<!--                            <div class="so-number">02</div>-->
+<!--                            <h5>Wedding Photography</h5>-->
+<!--                        </div>-->
+<!--                        <p>Wedding photography is multifaceted. It is a creative business that encompasses several genres of photography such as portrait, landscape, macro, product, and travel photography which require different technical and creative skills.-->
+
+<!--Seek out trends in wedding photography to elevate your craft and be inspired by our featured wedding photographers who share photography tips, techniques, ideas, and reviews of their photography gear to create stunning shots of wedding couples and their big day.-->
+
+<!--</p>-->
+<!--                    </div>-->
+<!--                    <div class="so-item">-->
+<!--                        <div class="so-title">-->
+<!--                            <div class="so-number">03</div>-->
+<!--                            <h5>Comercial photography</h5>-->
+<!--                        </div>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6">-->
+<!--                    <div class="so-item">-->
+<!--                        <div class="so-title">-->
+<!--                            <div class="so-number">04</div>-->
+<!--                            <h5>Social media photography</h5>-->
+<!--                        </div>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                    <div class="so-item">-->
+<!--                        <div class="so-title">-->
+<!--                            <div class="so-number">02</div>-->
+<!--                            <h5>Event Photography</h5>-->
+<!--                        </div>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                    <div class="so-item">-->
+<!--                        <div class="so-title">-->
+<!--                            <div class="so-number">03</div>-->
+<!--                            <h5>personal photography</h5>-->
+<!--                        </div>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--    &lt;!&ndash; Services Option Section End &ndash;&gt;-->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="fs-about">
+                        <div class="fa-logo">
+                            <a href="#">
+                                <img src="{% static 'asset/img/Free_Sample_By_Wix.jpg' %}" width="100px" alt="">
+                            </a>
+                        </div>
+                        <p>Ipcreative, high quality photography services</p>
+                        <div class="fa-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>Instagram</h5>
+                        <div class="fw-instagram">
+                            <img src="{% static 'asset/img/instagram/insta-1.jpg' %}" alt="">
+                            <img src="{% static 'asset/img/instagram/insta-2.jpg' %}" alt="">
+                            <img src="{% static 'asset/img/instagram/insta-3.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>Quick links</h5>
+                        <ul>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+
+                        </ul>
+                        <ul>
+                            <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                            <li><a href="{% url 'service' %}">Services</a></li>
+                            <li><a href="{% url 'appoinment' %}">Appoinment</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>Subscribe</h5>
+                        <p>We usually send less than 3 emails in a month. You can also easily unsubscribe any time you want.</p>
+                        <div class="fw-subscribe">
+                            <form action="#">
+                                <input type="text" placeholder="Email">
+                                <button type="submit"><i class="fa fa-send"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with CLICKSHARP<i class="fa fa-heart" aria-hidden="true"></i>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'asset/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'asset/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'asset/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'asset/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'asset/js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'asset/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'asset/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'asset/js/main.js' %}"></script>
+</body>
+
+</html>

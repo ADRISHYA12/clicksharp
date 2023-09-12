@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">NiceAdmin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 4 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+               {% for i in cata %}
+                <p>{{i.name}} has been booked an {{i.typeofservice}} service on{{i.date}}</p>
+                {% endfor %}
+              </div>
+<!--                <p>Quae dolorem earum veritatis oditseno</p>-->
+<!--                <p>30 min. ago</p>-->
+<!--              </div>-->
+<!--            </li>-->
+
+<!--            <li>-->
+<!--              <hr class="dropdown-divider">-->
+<!--            </li>-->
+
+<!--            <li class="notification-item">-->
+<!--              <i class="bi bi-x-circle text-danger"></i>-->
+<!--              <div>-->
+<!--                <h4>Atque rerum nesciunt</h4>-->
+<!--                <p>Quae dolorem earum veritatis oditseno</p>-->
+<!--                <p>1 hr. ago</p>-->
+<!--              </div>-->
+<!--            </li>-->
+
+<!--            <li>-->
+<!--              <hr class="dropdown-divider">-->
+<!--            </li>-->
+
+<!--            <li class="notification-item">-->
+<!--              <i class="bi bi-check-circle text-success"></i>-->
+<!--              <div>-->
+<!--                <h4>Sit rerum fuga</h4>-->
+<!--                <p>Quae dolorem earum veritatis oditseno</p>-->
+<!--                <p>2 hrs. ago</p>-->
+<!--              </div>-->
+<!--            </li>-->
+
+<!--            <li>-->
+<!--              <hr class="dropdown-divider">-->
+<!--            </li>-->
+
+<!--            <li class="notification-item">-->
+<!--              <i class="bi bi-info-circle text-primary"></i>-->
+<!--              <div>-->
+<!--                <h4>Dicta reprehenderit</h4>-->
+<!--                <p>Quae dolorem earum veritatis oditseno</p>-->
+<!--                <p>4 hrs. ago</p>-->
+<!--              </div>-->
+<!--            </li>-->
+
+<!--            <li>-->
+<!--              <hr class="dropdown-divider">-->
+<!--            </li>-->
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number">3</span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+            <li class="dropdown-header">
+              You have 3 new messages
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                <div>
+                  {% for i in adrisya %}
+                  <h4>{{i.Name}} has sent you a message</h4>
+                  <p></p>
+                  <p></p>
+                  {% endfor %}
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+<!--                <div>-->
+<!--                  <h4>Anna Nelson</h4>-->
+<!--                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>-->
+<!--                  <p>6 hrs. ago</p>-->
+<!--                </div>-->
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+<!--                <div>-->
+<!--                  <h4>David Muldon</h4>-->
+<!--                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>-->
+<!--                  <p>8 hrs. ago</p>-->
+<!--                </div>-->
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="dropdown-footer">
+              <a href="#">Show all messages</a>
+            </li>
+
+          </ul><!-- End Messages Dropdown Items -->
+
+        </li><!-- End Messages Nav -->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            {% if request.session.username %}
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{request.session.username}}</span>
+            {% endif %}
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>{{request.session.username}}</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'logoutadmin' %}">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'index' %}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>PHOTOGRAPHERS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'addphotographers' %}">
+              <i class="bi bi-circle"></i><span>Add Photographers</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'display' %}">
+              <i class="bi bi-circle"></i><span>Display Photographers</span>
+            </a>
+          </li>
+        </ul>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>CATEGORY</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'cat' %}">
+              <i class="bi bi-circle"></i><span>Add category</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'displaycat' %}">
+              <i class="bi bi-circle"></i><span>Display category</span>
+            </a>
+          </li>
+        </ul>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>SERVICES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'add_service' %}">
+              <i class="bi bi-circle"></i><span>Add services</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'display_service' %}">
+              <i class="bi bi-circle"></i><span>Display services</span>
+            </a>
+          </li>
+        </ul>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>PHOTOS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'single' %}">
+              <i class="bi bi-circle"></i><span>Add photos</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'display_single' %}">
+              <i class="bi bi-circle"></i><span>Display photos</span>
+            </a>
+          </li>
+        </ul>
+       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>CONTACT&APPOINMENT</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'display_contact' %}">
+              <i class="bi bi-circle"></i><span>Display Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'display_appoinment' %}">
+              <i class="bi bi-circle"></i><span>Display Appoinment</span>
+            </a>
+          </li>
+        </ul>
+<!--&lt;!&ndash;          <li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="components-buttons.html">&ndash;&gt;-->
+<!--&lt;!&ndash;              <i class="bi bi-circle"></i><span>Buttons</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="components-cards.html">&ndash;&gt;-->
+<!--&lt;!&ndash;              <i class="bi bi-circle"></i><span>Cards</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="components-carousel.html">&ndash;&gt;-->
+<!--&lt;!&ndash;              <i class="bi bi-circle"></i><span>Carousel</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="components-list-group.html">&ndash;&gt;-->
+<!--&lt;!&ndash;              <i class="bi bi-circle"></i><span>List group</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="components-modal.html">&ndash;&gt;-->
+<!--&lt;!&ndash;              <i class="bi bi-circle"></i><span>Modal</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="components-tabs.html">&ndash;&gt;-->
+<!--&lt;!&ndash;              <i class="bi bi-circle"></i><span>Tabs</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="components-pagination.html">&ndash;&gt;-->
+<!--&lt;!&ndash;              <i class="bi bi-circle"></i><span>Pagination</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li>&ndash;&gt;-->
+<!--            <a href="components-progress.html">-->
+<!--              <i class="bi bi-circle"></i><span>Progress</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="components-spinners.html">-->
+<!--              <i class="bi bi-circle"></i><span>Spinners</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="components-tooltips.html">-->
+<!--              <i class="bi bi-circle"></i><span>Tooltips</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>&lt;!&ndash; End Components Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">-->
+<!--          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>-->
+<!--        </a>-->
+<!--        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--          <li>-->
+<!--            <a href="forms-elements.html">-->
+<!--              <i class="bi bi-circle"></i><span>Form Elements</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="forms-layouts.html">-->
+<!--              <i class="bi bi-circle"></i><span>Form Layouts</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="forms-editors.html">-->
+<!--              <i class="bi bi-circle"></i><span>Form Editors</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="forms-validation.html">-->
+<!--              <i class="bi bi-circle"></i><span>Form Validation</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>&lt;!&ndash; End Forms Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">-->
+<!--          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>-->
+<!--        </a>-->
+<!--        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--          <li>-->
+<!--            <a href="tables-general.html">-->
+<!--              <i class="bi bi-circle"></i><span>General Tables</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="tables-data.html">-->
+<!--              <i class="bi bi-circle"></i><span>Data Tables</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>&lt;!&ndash; End Tables Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">-->
+<!--          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>-->
+<!--        </a>-->
+<!--        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--          <li>-->
+<!--            <a href="charts-chartjs.html">-->
+<!--              <i class="bi bi-circle"></i><span>Chart.js</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="charts-apexcharts.html">-->
+<!--              <i class="bi bi-circle"></i><span>ApexCharts</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="charts-echarts.html">-->
+<!--              <i class="bi bi-circle"></i><span>ECharts</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>&lt;!&ndash; End Charts Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">-->
+<!--          <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>-->
+<!--        </a>-->
+<!--        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--          <li>-->
+<!--            <a href="icons-bootstrap.html">-->
+<!--              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="icons-remix.html">-->
+<!--              <i class="bi bi-circle"></i><span>Remix Icons</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="icons-boxicons.html">-->
+<!--              <i class="bi bi-circle"></i><span>Boxicons</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>&lt;!&ndash; End Icons Nav &ndash;&gt;-->
+
+<!--      <li class="nav-heading">Pages</li>-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" href="users-profile.html">-->
+<!--          <i class="bi bi-person"></i>-->
+<!--          <span>Profile</span>-->
+<!--        </a>-->
+<!--      </li>&lt;!&ndash; End Profile Page Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" href="pages-faq.html">-->
+<!--          <i class="bi bi-question-circle"></i>-->
+<!--          <span>F.A.Q</span>-->
+<!--        </a>-->
+<!--      </li>&lt;!&ndash; End F.A.Q Page Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" href="pages-contact.html">-->
+<!--          <i class="bi bi-envelope"></i>-->
+<!--          <span>Contact</span>-->
+<!--        </a>-->
+<!--      </li>&lt;!&ndash; End Contact Page Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" href="pages-register.html">-->
+<!--          <i class="bi bi-card-list"></i>-->
+<!--          <span>Register</span>-->
+<!--        </a>-->
+<!--      </li>&lt;!&ndash; End Register Page Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" href="pages-loginuser.html">-->
+<!--          <i class="bi bi-box-arrow-in-right"></i>-->
+<!--          <span>Login</span>-->
+<!--        </a>-->
+<!--      </li>&lt;!&ndash; End Login Page Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" href="pages-error-404.html">-->
+<!--          <i class="bi bi-dash-circle"></i>-->
+<!--          <span>Error 404</span>-->
+<!--        </a>-->
+<!--      </li>&lt;!&ndash; End Error 404 Page Nav &ndash;&gt;-->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" href="pages-blank.html">-->
+<!--          <i class="bi bi-file-earmark"></i>-->
+<!--          <span>Blank</span>-->
+<!--        </a>-->
+<!--      </li>&lt;!&ndash; End Blank Page Nav &ndash;&gt;-->
+
+<!--    </ul>-->
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+{% block content %}
+    <div class="pagetitle">
+      <h1>WELCOME {{request.session.username}}</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+<!--        <div class="col-lg-8">-->
+<!--          <div class="row">-->
+
+<!--            &lt;!&ndash; Sales Card &ndash;&gt;-->
+<!--            <div class="col-xxl-4 col-md-6">-->
+<!--              <div class="card info-card sales-card">-->
+
+<!--                <div class="filter">-->
+<!--                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                    <li class="dropdown-header text-start">-->
+<!--                      <h6>Filter</h6>-->
+<!--                    </li>-->
+
+<!--                    <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;                <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h5 class="card-title">Sales <span>| Today</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <div class="d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <i class="bi bi-cart"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="ps-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h6>145</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&lt;!&ndash; End Sales Card &ndash;&gt;&ndash;&gt;-->
+
+<!--            &lt;!&ndash; Revenue Card &ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="col-xxl-4 col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="card info-card revenue-card">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="filter">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li class="dropdown-header text-start">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h6>Filter</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">Today</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">This Month</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">This Year</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h5 class="card-title">Revenue <span>| This Month</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <div class="d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <i class="bi bi-currency-dollar"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="ps-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h6>$3,264</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&lt;!&ndash; End Revenue Card &ndash;&gt;&ndash;&gt;-->
+
+<!--            &lt;!&ndash; Customers Card &ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="col-xxl-4 col-xl-12">&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <div class="card info-card customers-card">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="filter">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li class="dropdown-header text-start">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h6>Filter</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">Today</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">This Month</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">This Year</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h5 class="card-title">Customers <span>| This Year</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <div class="d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <i class="bi bi-people"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="ps-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h6>1244</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&lt;!&ndash; End Customers Card &ndash;&gt;&ndash;&gt;-->
+
+<!--            &lt;!&ndash; Reports &ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="col-12">&ndash;&gt;-->
+<!--&lt;!&ndash;              <div class="card">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="filter">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li class="dropdown-header text-start">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <h6>Filter</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">Today</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">This Month</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li><a class="dropdown-item" href="#">This Year</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h5 class="card-title">Reports <span>/Today</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  &lt;!&ndash; Line Chart &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div id="reportsChart"></div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <script>&ndash;&gt;-->
+<!--&lt;!&ndash;                    document.addEventListener("DOMContentLoaded", () => {&ndash;&gt;-->
+<!--&lt;!&ndash;                      new ApexCharts(document.querySelector("#reportsChart"), {&ndash;&gt;-->
+<!--&lt;!&ndash;                        series: [{&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Sales',&ndash;&gt;-->
+<!--&lt;!&ndash;                          data: [31, 40, 28, 51, 42, 82, 56],&ndash;&gt;-->
+<!--&lt;!&ndash;                        }, {&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Revenue',&ndash;&gt;-->
+<!--&lt;!&ndash;                          data: [11, 32, 45, 32, 34, 52, 41]&ndash;&gt;-->
+<!--&lt;!&ndash;                        }, {&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Customers',&ndash;&gt;-->
+<!--&lt;!&ndash;                          data: [15, 11, 32, 18, 9, 24, 11]&ndash;&gt;-->
+<!--&lt;!&ndash;                        }],&ndash;&gt;-->
+<!--&lt;!&ndash;                        chart: {&ndash;&gt;-->
+<!--&lt;!&ndash;                          height: 350,&ndash;&gt;-->
+<!--&lt;!&ndash;                          type: 'area',&ndash;&gt;-->
+<!--&lt;!&ndash;                          toolbar: {&ndash;&gt;-->
+<!--&lt;!&ndash;                            show: false&ndash;&gt;-->
+<!--&lt;!&ndash;                          },&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        markers: {&ndash;&gt;-->
+<!--&lt;!&ndash;                          size: 4&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        colors: ['#4154f1', '#2eca6a', '#ff771d'],&ndash;&gt;-->
+<!--&lt;!&ndash;                        fill: {&ndash;&gt;-->
+<!--&lt;!&ndash;                          type: "gradient",&ndash;&gt;-->
+<!--&lt;!&ndash;                          gradient: {&ndash;&gt;-->
+<!--&lt;!&ndash;                            shadeIntensity: 1,&ndash;&gt;-->
+<!--&lt;!&ndash;                            opacityFrom: 0.3,&ndash;&gt;-->
+<!--&lt;!&ndash;                            opacityTo: 0.4,&ndash;&gt;-->
+<!--&lt;!&ndash;                            stops: [0, 90, 100]&ndash;&gt;-->
+<!--&lt;!&ndash;                          }&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        dataLabels: {&ndash;&gt;-->
+<!--&lt;!&ndash;                          enabled: false&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        stroke: {&ndash;&gt;-->
+<!--&lt;!&ndash;                          curve: 'smooth',&ndash;&gt;-->
+<!--&lt;!&ndash;                          width: 2&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        xaxis: {&ndash;&gt;-->
+<!--&lt;!&ndash;                          type: 'datetime',&ndash;&gt;-->
+<!--&lt;!&ndash;                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        tooltip: {&ndash;&gt;-->
+<!--&lt;!&ndash;                          x: {&ndash;&gt;-->
+<!--&lt;!&ndash;                            format: 'dd/MM/yy HH:mm'&ndash;&gt;-->
+<!--&lt;!&ndash;                          },&ndash;&gt;-->
+<!--&lt;!&ndash;                        }&ndash;&gt;-->
+<!--&lt;!&ndash;                      }).render();&ndash;&gt;-->
+<!--&lt;!&ndash;                    });&ndash;&gt;-->
+<!--&lt;!&ndash;                  </script>&ndash;&gt;-->
+<!--&lt;!&ndash;                  &lt;!&ndash; End Line Chart &ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&lt;!&ndash; End Reports &ndash;&gt;&ndash;&gt;-->
+
+<!--            &lt;!&ndash; Recent Sales &ndash;&gt;-->
+<!--            <div class="col-12">-->
+<!--              <div class="card recent-sales overflow-auto">-->
+
+<!--                <div class="filter">-->
+<!--                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                    <li class="dropdown-header text-start">-->
+<!--                      <h6>Filter</h6>-->
+<!--                    </li>-->
+
+<!--                    <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;                <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <table class="table table-borderless datatable">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">#</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Customer</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Product</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Price</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Status</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#">#2457</a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>Brandon Jacob</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary">At praesentium minu</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$64</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><span class="badge bg-success">Approved</span></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#">#2147</a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>Bridie Kessler</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$47</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><span class="badge bg-warning">Pending</span></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#">#2049</a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>Ashleigh Langosh</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$147</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><span class="badge bg-success">Approved</span></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#">#2644</a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>Angus Grady</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$67</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><span class="badge bg-danger">Rejected</span></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#">#2644</a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>Raheem Lehner</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$165</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><span class="badge bg-success">Approved</span></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; End Recent Sales &ndash;&gt;-->
+
+<!--            &lt;!&ndash; Top Selling &ndash;&gt;-->
+<!--            <div class="col-12">-->
+<!--              <div class="card top-selling overflow-auto">-->
+
+<!--                <div class="filter">-->
+<!--                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                    <li class="dropdown-header text-start">-->
+<!--                      <h6>Filter</h6>-->
+<!--                    </li>-->
+
+<!--                    <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;                <div class="card-body pb-0">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h5 class="card-title">Top Selling <span>| Today</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <table class="table table-borderless">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Preview</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Product</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Price</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Sold</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="col">Revenue</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$64</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td class="fw-bold">124</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$5,828</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$46</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td class="fw-bold">98</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$4,508</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$59</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td class="fw-bold">74</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$4,366</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$32</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td class="fw-bold">63</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$2,016</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$79</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td class="fw-bold">41</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td>$3,239</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; End Top Selling &ndash;&gt;-->
+
+<!--          </div>-->
+<!--        </div>&lt;!&ndash; End Left side columns &ndash;&gt;-->
+
+<!--        &lt;!&ndash; Right side columns &ndash;&gt;-->
+<!--        <div class="col-lg-4">-->
+
+<!--          &lt;!&ndash; Recent Activity &ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="filter">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="dropdown-header text-start">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h6>Filter</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">Today</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">This Month</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">This Year</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;              <h5 class="card-title">Recent Activity <span>| Today</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <div class="activity">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="activity-item d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activite-label">32 min</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activity-content">&ndash;&gt;-->
+<!--&lt;!&ndash;                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&lt;!&ndash; End activity item&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="activity-item d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activite-label">56 min</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activity-content">&ndash;&gt;-->
+<!--&lt;!&ndash;                    Voluptatem blanditiis blanditiis eveniet&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&lt;!&ndash; End activity item&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="activity-item d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activite-label">2 hrs</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activity-content">&ndash;&gt;-->
+<!--&lt;!&ndash;                    Voluptates corrupti molestias voluptatem&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&lt;!&ndash; End activity item&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="activity-item d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activite-label">1 day</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activity-content">&ndash;&gt;-->
+<!--&lt;!&ndash;                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&lt;!&ndash; End activity item&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="activity-item d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activite-label">2 days</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activity-content">&ndash;&gt;-->
+<!--&lt;!&ndash;                    Est sit eum reiciendis exercitationem&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&lt;!&ndash; End activity item&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="activity-item d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activite-label">4 weeks</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="activity-content">&ndash;&gt;-->
+<!--&lt;!&ndash;                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&lt;!&ndash; End activity item&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&lt;!&ndash; End Recent Activity &ndash;&gt;&ndash;&gt;-->
+
+<!--          &lt;!&ndash; Budget Report &ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="filter">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="dropdown-header text-start">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h6>Filter</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">Today</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">This Month</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">This Year</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <div class="card-body pb-0">&ndash;&gt;-->
+<!--&lt;!&ndash;              <h5 class="card-title">Budget Report <span>| This Month</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <div id="budgetChart" style="min-height: 400px;" class="echart"></div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <script>&ndash;&gt;-->
+<!--&lt;!&ndash;                document.addEventListener("DOMContentLoaded", () => {&ndash;&gt;-->
+<!--&lt;!&ndash;                  var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({&ndash;&gt;-->
+<!--&lt;!&ndash;                    legend: {&ndash;&gt;-->
+<!--&lt;!&ndash;                      data: ['Allocated Budget', 'Actual Spending']&ndash;&gt;-->
+<!--&lt;!&ndash;                    },&ndash;&gt;-->
+<!--&lt;!&ndash;                    radar: {&ndash;&gt;-->
+<!--&lt;!&ndash;                      // shape: 'circle',&ndash;&gt;-->
+<!--&lt;!&ndash;                      indicator: [{&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Sales',&ndash;&gt;-->
+<!--&lt;!&ndash;                          max: 6500&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Administration',&ndash;&gt;-->
+<!--&lt;!&ndash;                          max: 16000&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Information Technology',&ndash;&gt;-->
+<!--&lt;!&ndash;                          max: 30000&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Customer Support',&ndash;&gt;-->
+<!--&lt;!&ndash;                          max: 38000&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Development',&ndash;&gt;-->
+<!--&lt;!&ndash;                          max: 52000&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Marketing',&ndash;&gt;-->
+<!--&lt;!&ndash;                          max: 25000&ndash;&gt;-->
+<!--&lt;!&ndash;                        }&ndash;&gt;-->
+<!--&lt;!&ndash;                      ]&ndash;&gt;-->
+<!--&lt;!&ndash;                    },&ndash;&gt;-->
+<!--&lt;!&ndash;                    series: [{&ndash;&gt;-->
+<!--&lt;!&ndash;                      name: 'Budget vs spending',&ndash;&gt;-->
+<!--&lt;!&ndash;                      type: 'radar',&ndash;&gt;-->
+<!--&lt;!&ndash;                      data: [{&ndash;&gt;-->
+<!--&lt;!&ndash;                          value: [4200, 3000, 20000, 35000, 50000, 18000],&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Allocated Budget'&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          value: [5000, 14000, 28000, 26000, 42000, 21000],&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Actual Spending'&ndash;&gt;-->
+<!--&lt;!&ndash;                        }&ndash;&gt;-->
+<!--&lt;!&ndash;                      ]&ndash;&gt;-->
+<!--&lt;!&ndash;                    }]&ndash;&gt;-->
+<!--&lt;!&ndash;                  });&ndash;&gt;-->
+<!--&lt;!&ndash;                });&ndash;&gt;-->
+<!--&lt;!&ndash;              </script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&lt;!&ndash; End Budget Report &ndash;&gt;&ndash;&gt;-->
+
+<!--          &lt;!&ndash; Website Traffic &ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="filter">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="dropdown-header text-start">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h6>Filter</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">Today</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">This Month</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">This Year</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <div class="card-body pb-0">&ndash;&gt;-->
+<!--&lt;!&ndash;              <h5 class="card-title">Website Traffic <span>| Today</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <script>&ndash;&gt;-->
+<!--&lt;!&ndash;                document.addEventListener("DOMContentLoaded", () => {&ndash;&gt;-->
+<!--&lt;!&ndash;                  echarts.init(document.querySelector("#trafficChart")).setOption({&ndash;&gt;-->
+<!--&lt;!&ndash;                    tooltip: {&ndash;&gt;-->
+<!--&lt;!&ndash;                      trigger: 'item'&ndash;&gt;-->
+<!--&lt;!&ndash;                    },&ndash;&gt;-->
+<!--&lt;!&ndash;                    legend: {&ndash;&gt;-->
+<!--&lt;!&ndash;                      top: '5%',&ndash;&gt;-->
+<!--&lt;!&ndash;                      left: 'center'&ndash;&gt;-->
+<!--&lt;!&ndash;                    },&ndash;&gt;-->
+<!--&lt;!&ndash;                    series: [{&ndash;&gt;-->
+<!--&lt;!&ndash;                      name: 'Access From',&ndash;&gt;-->
+<!--&lt;!&ndash;                      type: 'pie',&ndash;&gt;-->
+<!--&lt;!&ndash;                      radius: ['40%', '70%'],&ndash;&gt;-->
+<!--&lt;!&ndash;                      avoidLabelOverlap: false,&ndash;&gt;-->
+<!--&lt;!&ndash;                      label: {&ndash;&gt;-->
+<!--&lt;!&ndash;                        show: false,&ndash;&gt;-->
+<!--&lt;!&ndash;                        position: 'center'&ndash;&gt;-->
+<!--&lt;!&ndash;                      },&ndash;&gt;-->
+<!--&lt;!&ndash;                      emphasis: {&ndash;&gt;-->
+<!--&lt;!&ndash;                        label: {&ndash;&gt;-->
+<!--&lt;!&ndash;                          show: true,&ndash;&gt;-->
+<!--&lt;!&ndash;                          fontSize: '18',&ndash;&gt;-->
+<!--&lt;!&ndash;                          fontWeight: 'bold'&ndash;&gt;-->
+<!--&lt;!&ndash;                        }&ndash;&gt;-->
+<!--&lt;!&ndash;                      },&ndash;&gt;-->
+<!--&lt;!&ndash;                      labelLine: {&ndash;&gt;-->
+<!--&lt;!&ndash;                        show: false&ndash;&gt;-->
+<!--&lt;!&ndash;                      },&ndash;&gt;-->
+<!--&lt;!&ndash;                      data: [{&ndash;&gt;-->
+<!--&lt;!&ndash;                          value: 1048,&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Search Engine'&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          value: 735,&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Direct'&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          value: 580,&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Email'&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          value: 484,&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Union Ads'&ndash;&gt;-->
+<!--&lt;!&ndash;                        },&ndash;&gt;-->
+<!--&lt;!&ndash;                        {&ndash;&gt;-->
+<!--&lt;!&ndash;                          value: 300,&ndash;&gt;-->
+<!--&lt;!&ndash;                          name: 'Video Ads'&ndash;&gt;-->
+<!--&lt;!&ndash;                        }&ndash;&gt;-->
+<!--&lt;!&ndash;                      ]&ndash;&gt;-->
+<!--&lt;!&ndash;                    }]&ndash;&gt;-->
+<!--&lt;!&ndash;                  });&ndash;&gt;-->
+<!--&lt;!&ndash;                });&ndash;&gt;-->
+<!--&lt;!&ndash;              </script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&lt;!&ndash; End Website Traffic &ndash;&gt;&ndash;&gt;-->
+
+<!--          &lt;!&ndash; News & Updates Traffic &ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="filter">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="dropdown-header text-start">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h6>Filter</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">Today</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">This Month</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li><a class="dropdown-item" href="#">This Year</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;              </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <div class="card-body pb-0">&ndash;&gt;-->
+<!--&lt;!&ndash;              <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <div class="news">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="post-item clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <img src="assets/img/news-1.jpg" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="post-item clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <img src="assets/img/news-2.jpg" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h4><a href="#">Quidem autem et impedit</a></h4>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="post-item clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <img src="assets/img/news-3.jpg" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="post-item clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <img src="assets/img/news-4.jpg" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h4><a href="#">Laborum corporis quo dara net para</a></h4>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <div class="post-item clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <img src="assets/img/news-5.jpg" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              </div>&lt;!&ndash; End sidebar recent posts&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&lt;!&ndash; End News & Updates &ndash;&gt;&ndash;&gt;-->
+
+<!--        </div>&lt;!&ndash; End Right side columns &ndash;&gt;-->
+
+<!--      </div>-->
+<!--    </section>-->
+
+<!--  </main>&lt;!&ndash; End #main &ndash;&gt;-->
+{% endblock %}
+<!--   ======= Footer =======-->
+<!--  <footer id="footer" class="footer">-->
+<!--    <div class="copyright">-->
+<!--      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved-->
+<!--    </div>-->
+<!--    <div class="credits">-->
+<!--      &lt;!&ndash; All the links in the footer should remain intact. &ndash;&gt;-->
+<!--      &lt;!&ndash; You can delete the links only if you purchased the pro version. &ndash;&gt;-->
+<!--      &lt;!&ndash; Licensing information: https://bootstrapmade.com/license/ &ndash;&gt;-->
+<!--      &lt;!&ndash; Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ &ndash;&gt;-->
+<!--      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
+<!--    </div>-->
+<!--  </footer>&lt;!&ndash; End Footer &ndash;&gt;-->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/chart.js/chart.umd.js' %}"></script>
+  <script src="{% static 'assets/vendor/echarts/echarts.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'assets/vendor/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

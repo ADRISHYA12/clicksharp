@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form  method="post" action="{% url 'saveservice' %}" class="row g-3" enctype="multipart/form-data">
+    {% csrf_token %}
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">SERVICE NAME</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="name">
+                </div>
+
+              <div class="col-12">
+                  <label for="inputNanme4" class="form-label">PHOTO</label>
+                  <input type="file" class="form-control" id="inputNanme4" name="photo">
+                </div>
+              <div class="col-12">
+                  <label for="inputNanme4" class="form-label"> DESCRIPTION</label>
+                  <textarea type="text" class="form-control" id="inputNanme4" name="description"></textarea>
+                </div>
+             <div class="col-12">
+                  <label for="inputNanme4" class="form-label"> price</label>
+                  <input type="number" class="form-control" id="inputNanme4" name="price">
+                </div>
+           <div class="col-12">
+                  <label for="inputNanme4" class="form-label"> time</label>
+                  <input type="time" class="form-control" id="inputNanme4" name="time">
+                </div>
+       <div class="col-12">
+                  <label for="inputNanme4" class="form-label"> TYPE</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="type">
+                </div>
+
+
+    <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+
+
+
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form  method="post" action="{% url 'update_service' dataid=data.id %}" class="row g-3" enctype="multipart/form-data">
+    {% csrf_token %}
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">SERVICE NAME</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="name" value="{{data.SNAME}}">
+                </div>
+
+              <div class="col-12">
+                  <label for="inputNanme4" class="form-label">PHOTO</label>
+                  <input type="file" class="form-control" id="inputNanme4" name="photo" value="{{data.SIM}}">
+                </div>
+              <div class="col-12">
+                  <label for="inputNanme4" class="form-label"> DESCRIPTION</label>
+                  <textarea type="text" class="form-control" id="inputNanme4" name="description">{{data.S_DESCRIPTION}}</textarea>
+                </div>
+             <div class="col-12">
+                  <label for="inputNanme4" class="form-label"> price</label>
+                  <input type="number" class="form-control" id="inputNanme4" name="price" value="{{data.price}}">
+                </div>
+             <div class="col-12">
+                  <label for="inputNanme4" class="form-label"> time</label>
+                  <input type="time" class="form-control" id="inputNanme4" name="time" value="{{data.time}}">
+                </div>
+             <div class="col-12">
+                  <label for="inputNanme4" class="form-label"> TYPE</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="type" value="{{data.type}}">
+                </div>
+
+
+    <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+
+
+
+</form>
+</body>
+</html>
+{% endblock %}

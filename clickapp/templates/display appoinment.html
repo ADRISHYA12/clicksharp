@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+            <div class="card-body">
+              <h5 class="card-title">TABLE</h5>
+
+              <!-- Dark Table -->
+              <table class="table table-dark">
+                <thead>
+
+                  <tr>
+                    <th scope="col">NAME</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">MOBILE</th>
+                    <th scope="col">DATE</th>
+                    <th scope="col">TYPE</th>
+                    <th scope="col">DURATION</th>
+                    <th scope="col">MESSAGE</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for i in data %}
+                  <tr>
+                      <td>{{i.name}}</td>
+                      <td>{{i.email}}</td>
+                      <td>{{i.mobile}}</td>
+                      <td>{{i.date}}</td>
+                      <td>{{i.typeofservice}}</td>
+                      <td>{{i.duration}}</td>
+                      <td>{{i.remarks}}</td>
+                          <td>
+                              <form action="{% url 'delete_appoinment' dataid=i.id %}">
+                              <button type="submit"  class="btn btn-primary">Delete</button>
+                              </form>
+                          </td>
+
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Dark Table -->
+
+            </div>
+          </div>
+
+</body>
+</html>
+{% endblock %}

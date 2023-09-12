@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{% url 'saveitm' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+ <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Category Of photos</label>
+                  <select type="text" class="form-control" id="inputNanme4" name="catname">
+                      <option selected="">choose..</option>
+                      {% for i in data %}
+                      <option>{{i.pcat}}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+    <div class="col-12">
+                  <label for="inputNanme4" class="form-label">photo Name</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="photo Name">
+                </div>
+    <div class="col-12">
+                  <label for="inputNanme4" class="form-label">photo</label>
+                  <input type="file" class="form-control" id="inputNanme4" name="photo">
+                </div>
+    <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Description</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="Description">
+                </div>
+    <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
+{% endblock %}

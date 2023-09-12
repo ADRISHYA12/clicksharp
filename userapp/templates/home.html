@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Phozogy Template">
+    <meta name="keywords" content="Phozogy, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Phozogy | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Quantico:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="logo">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'asset/img/Free_Sample_By_Wix.jpg' %}" alt="">
+                        </a>
+                    </div>
+                    <nav class="nav-menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'service' %}">Services</a></li>
+                            <li><a href="{% url 'price' %}">Pricing</a></li>
+                            <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                            <li><a href="{% url 'appoinment' %}">appoinment</a>
+<!--                                <ul class="dropdown">-->
+<!--                                    <li><a href="./gallery.html">Gallery</a></li>-->
+<!--                                    <li><a href="./portfolio-details.html">Portfolio Details</a></li>-->
+<!--                                </ul>-->
+                            </li>
+
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                            {% if request.session.Name %}
+                            <li><a href="#">{{request.session.Name}}</a>
+                                <ul class="dropdown">
+                                    <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                                     {% else %}
+                            <li><a href="{% url 'login' %}">LOGIN</a></li>
+                            {% endif %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+<!--                    <div class="top-search search-switch">-->
+<!--                        <i class="fa fa-search"></i>-->
+<!--                    </div>-->
+                    <div id="mobile-menu-wrap"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="hs-slider owl-carousel">
+            <div class="hs-item set-bg" data-setbg="{% static 'asset/img/hero/electronic-digital-camera-lens-nature-green-cameras-optics-1595179-pxhere.com.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hs-text">
+                                <h2>CLICK SHARP STUDIO</h2>
+                                <p>Photography, Web Design, Brand Styling and Social Media Strategy,<br>we work with businesses to creating powerful first impressions and infuse aesthetics with a more defined approach.<br> We also have a in house photography studio ideal for use in fashion, editorial, product, eCommerce & other photography shoots</p>
+                                <a href="{% url 'contact' %}" class="primary-btn">Contact us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hs-item set-bg" data-setbg="{% static 'asset/img/hero/children-817365_1280.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hs-text">
+                                <h2>CLICK SHARP STUDIO</h2>
+                                <p>we are the perfect choice for creating beautifully styled branding & product photography for e-commerce,  social media marketing, stationery design & a lot more.<br> We help bring a fresh perspective and loads of creativity to showcase you to the world.</p>
+                                <a href="{% url 'contact' %}" class="primary-btn">Contact us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+    <!-- Services Section Begin -->
+    <section class="services-section ">
+        <div class="container">
+            <div class="row">{% for i in data %}
+                {% if forloop.counter <= 3 %}
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="services-item">
+                        <img src="{{i.SIM.url}}" alt="" >
+                        <h3><a href=""></a>{{i.SNAME}}</h3>
+                        <p>{{i.S_DESCRIPTION}}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+<!--                <div class="col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="services-item">-->
+<!--                        <img src="{% static 'asset/img/services/service-2.jpg' %}" alt="">-->
+<!--                        <h3>Videos</h3>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="services-item">-->
+<!--                        <img src="{% static 'asset/img/services/service-3.jpg' %}" alt="">-->
+<!--                        <h3>Editing</h3>-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt-->
+<!--                            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Categories Section Begin -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="section-title">
+                        <h2>Categories</h2>
+                        <p>Our team is dedicated to capturing your most precious moments and turning them into lifelong memories.<br> we offer a range of photography services including portrait, event, and even commercial photography.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="right-btn"><a href="{% url 'portfolio' %}" class="primary-btn">VIew all</a></div>
+                </div>
+            </div>
+
+            <div class="categories-slider owl-carousel">
+                {% for i in pro %}
+                <div class="cs-item">
+                    <div class="cs-pic set-bg" data-setbg="{{i.pimg.url}}"></div>
+                    <div class="cs-text">
+                        <h4>{{i.pcat}}</h4>
+                        <P>{{i.pdes}}</P>
+                        <a href="{% url 'singlephoto' catname=i.pcat %}">click</a>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Categories Section End -->
+
+    <!-- Portfolio Section Begin -->
+    <section class="portfolio-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Our latest works</h2>
+                    </div>
+                    <div class="filter-controls">
+<!--                        <ul>-->
+<!--                            <li class="active" data-filter="*">All</li>-->
+<!--                            <li data-filter=".fashion">Fashion</li>-->
+<!--                            <li data-filter=".lifestyle">Lifestyle</li>-->
+<!--                            <li data-filter=".natural">Natural</li>-->
+<!--                            <li data-filter=".wedding">Wedding</li>-->
+<!--                            <li data-filter=".videos">Videos</li>-->
+<!--                        </ul>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 p-0">
+                    <div class="gallery-filter" style="position: relative; height: 1760px;">
+                        {% for i in bro %}
+                        {% if forloop.counter <= 10 %}
+                        <div class="gf-item set-bg fashion" data-setbg="{{i.photo.url}}" style="background-image: url(&quot;img/gallery/gallery-1.jpg&quot;); ">
+                            <a href="img/gallery/gallery-1.jpg" class="gf-icon image-popup"><span class="icon_plus"></span></a>
+                            {% endif %}
+                        </div>{% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        <div class="container-fluid">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-12 p-0">-->
+<!--                    <div class="portfolio-filter">-->
+<!--                        <div class="pf-item set-bg fashion" data-setbg="{% static 'asset/img/portfolio/pf-1.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-1.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item large-width large-height set-bg lifestyle"-->
+<!--                            data-setbg="{% static 'asset/img/portfolio/pf-2.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-2.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item large-width set-bg natural" data-setbg="{% static 'asset/img/portfolio/pf-3.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-3.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item large-height set-bg wedding" data-setbg="{% static 'asset/img/portfolio/pf-4.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-4.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item set-bg lifestyle" data-setbg="{% static 'asset/img/portfolio/pf-7.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-7.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item set-bg natural" data-setbg="{% static 'asset/img/portfolio/pf-8.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-8.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item set-bg videos" data-setbg="{% static 'asset/img/portfolio/pf-5.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-5.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item set-bg fashion" data-setbg="{% static 'asset/img/portfolio/pf-6.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-6.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item large-width set-bg videos" data-setbg="{% static 'asset/img/portfolio/pf-10.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-10.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item set-bg fashion" data-setbg="{% static 'asset/img/portfolio/pf-11.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-11.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="pf-item large-width large-height set-bg wedding"-->
+<!--                            data-setbg="{% static 'asset/img/portfolio/pf-9.jpg' %}">-->
+<!--                            <a href="{% static 'asset/img/portfolio/pf-9.jpg' %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>-->
+<!--                            <div class="pf-text">-->
+<!--                                <h4>COLORS SPEAK</h4>-->
+<!--                                <span>Fashion</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="load-more-btn">
+            <a href="{% url 'portfolio' %}" >Load More</a>
+        </div>
+    </section>
+    <!-- Portfolio Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="fs-about">
+                        <div class="fa-logo">
+                            <a href="#">
+                                <img src="{% static 'asset/img/Free_Sample_By_Wix.jpg' %}" width="100px" alt="">
+                            </a>
+                        </div>
+                        <p>creative, high quality photography services</p>
+                        <div class="fa-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>Instagram</h5>
+                        <div class="fw-instagram">
+                            <img src="{% static 'asset/img/instagram/insta-1.jpg' %}" alt="">
+                            <img src="{% static 'asset/img/instagram/insta-2.jpg' %}" alt="">
+                            <img src="{% static 'asset/img/instagram/insta-3.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>Quick links</h5>
+                        <ul>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+
+                        </ul>
+                        <ul>
+                            <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                            <li><a href="{% url 'service' %}">Services</a></li>
+                            <li><a href="{% url 'appoinment' %}">Appoinment</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>Subscribe</h5>
+                        <p>We usually send less than 3 emails in a month. You can also easily unsubscribe any time you want.</p>
+                        <div class="fw-subscribe">
+                            <form action="#">
+                                <input type="text" placeholder="Email">
+                                <button type="submit"><i class="fa fa-send"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved CLICKSHARP <i class="fa fa-heart" aria-hidden="true"></i>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'asset/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'asset/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'asset/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'asset/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'asset/js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'asset/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'asset/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'asset/js/main.js' %}"></script>
+     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+  {% if messages %}
+        {% for i in messages %}
+            {% if i.tags == 'warning' %}
+                <script>
+                 swal('{{i}}','','warning')
+                </script>
+            {% elif i.tags == 'error' %}
+                <script>
+                 swal('{{i}}','','error')
+                </script>
+            {% else %}
+                <script>
+                 swal('{{i}}','','success')
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</body>
+
+</html>

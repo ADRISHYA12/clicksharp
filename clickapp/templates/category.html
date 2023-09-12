@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Form</h5>
+
+              <!-- Vertical Form -->
+              <form method="post" action="{% url 'savcat' %}" class="row g-3"enctype="multipart/form-data">
+                  {% csrf_token %}
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">category</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="category">
+                </div>
+                <div class="col-12">
+                  <label for="inputEmail4" class="form-label">photos</label>
+                  <input type="file" class="form-control" id="inputEmail4" name="image">
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">description</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="desc.." name="description">
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+
+</body>
+</html>
+{% endblock %}
